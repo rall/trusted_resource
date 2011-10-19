@@ -1,13 +1,14 @@
 require 'spec_helper'
 
+ActiveRecord::Base.connection.execute("DROP TABLE IF EXISTS 'test_models'")
+ActiveRecord::Base.connection.create_table(:test_models) do |t|
+    t.string :foo, :bar
+end
+
+
 class TestModel < ActiveRecord::Base
   attr_accessible :foo
   attr_protected :bar
-
-  def self.columns
-    [ ActiveRecord::ConnectionAdapters::Column.new("foo", nil, "", true),
-      ActiveRecord::ConnectionAdapters::Column.new("bar", nil, "", true) ]
-  end
 end
 
 describe ProtectedAttributeAssigment do
