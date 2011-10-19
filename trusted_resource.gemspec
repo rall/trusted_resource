@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
   s.rubyforge_project = "trusted_resource"
 
   s.add_dependency("activeresource", ">= 3.0")
+  s.add_development_dependency("activerecord", ">= 3.0")
   s.add_development_dependency("rspec")
 
   s.files         = `git ls-files`.split("\n")

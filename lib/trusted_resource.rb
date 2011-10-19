@@ -1,4 +1,5 @@
 require "trusted_resource/version"
+require "protected_attributes_assignment"
 
 module TrustedResource
   class Base < ActiveResource::Base
@@ -32,4 +33,8 @@ module TrustedResource
       resource.send method, attrs
     end
   end
+end
+
+class ActiveRecord::Base
+  extend ProtectedAttributeAssigment
 end
