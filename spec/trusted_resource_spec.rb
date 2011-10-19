@@ -52,6 +52,4 @@ describe TestResource, "#load" do
       end
     end
   end
-
-
 end
